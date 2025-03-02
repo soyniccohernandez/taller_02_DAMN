@@ -17,4 +17,25 @@
     <string name="text_registrate_login">No tienes cuenta?</string>
     <string name="link_registrate_login">Regístrate</string>
 
+    //Activity Recuperar Contraseña
+    <string name="msg_recuperacion">Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</string>
+    <string name="hint_ingresa_correo">Correo electrónico</string>
+    <string name="btn_enviar_solicitud">Enviar solicitud</string>
+    <string name="olvide_contrasena">¿Olvidaste tu contraseña?</string>
+
+    //Activity Registar
+    <string name="mensaje_instructivo_registrar">Regístrate para continuar</string>
+    <string name="mensaje_terminos_registrar">Acepto los términos y condiciones</string>
+    <string name="mensaje_btn_registrate_registrar">Regístrarse</string>
+    <string name="link_login_registrar">¿Ya tienes cuenta? Inicia sesión</string>
+
+    <!-- Activity Perfil -->
+    <string name="perfil_img_desc">Imagen de perfil</string>
+    <string name="perfil_nombre">Nombre: Juan</string>
+    <string name="perfil_apellido">Apellido: Pérez</string>
+    <string name="perfil_correo">Correo: juanperez@email.com</string>
+    <string name="perfil_telefono">Teléfono: +57 300 123 4567</string>
+    <string name="perfil_btn_editar">Editar Perfil</string>
+
+
 </resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#424242"
+    android:padding="24dp">
+
+    <!-- Logo de la APP -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Mensaje instructivo -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/msg_recuperacion"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Campo para ingresar el correo -->
+    <EditText
+        android:id="@+id/etCorreoRecuperacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_ingresa_correo"
+        android:textColor="@color/blanco"
+        android:textColorHint="@color/color_texto_input"
+        android:background="@drawable/input_background"
+        android:padding="10dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Botón para enviar la solicitud -->
+    <Button
+        android:id="@+id/btnEnviarSolicitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_enviar_solicitud"
+        android:textSize="18sp"
+        android:textColor="@color/blanco"
+        android:background="@drawable/btn_style"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp" />
+
+</LinearLayout>

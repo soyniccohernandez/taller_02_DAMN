@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#424242">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Nombre de la App -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_nombre_aplicacion"
+            android:textColor="@color/blanco"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Mensaje Instructivo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mensaje_instructivo_registrar"
+            android:textColor="@color/blanco"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Campos de Registro -->
+
+        <EditText
+            android:id="@+id/etNombres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="Nombres"
+            android:padding="12dp"
+            android:textColor="@color/blanco"
+            android:textColorHint="@color/color_texto_input"
+            android:background="@drawable/input_background"/>
+
+        <EditText
+            android:id="@+id/etApellidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellidos"
+            android:padding="12dp"
+            android:textColor="@color/blanco"
+            android:textColorHint="@color/color_texto_input"
+            android:background="@drawable/input_background"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo Electrónico"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/blanco"
+            android:textColorHint="@color/color_texto_input"
+            android:background="@drawable/input_background"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Teléfono"
+            android:inputType="phone"
+            android:padding="12dp"
+            android:textColor="@color/blanco"
+            android:textColorHint="@color/color_texto_input"
+            android:background="@drawable/input_background"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColor="@color/blanco"
+            android:textColorHint="@color/color_texto_input"
+            android:background="@drawable/input_background"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/etRepetirContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Repetir Contraseña"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textColor="@color/blanco"
+            android:textColorHint="@color/color_texto_input"
+            android:background="@drawable/input_background"
+            android:layout_marginBottom="8dp" />
+
+        <!-- CheckBox de Términos y Condiciones -->
+        <CheckBox
+            android:id="@+id/checkTerminos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mensaje_terminos_registrar"
+            android:textColor="@color/blanco"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botón de Registro -->
+        <Button
+            android:id="@+id/btnRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mensaje_btn_registrate_registrar"
+            android:textSize="18sp"
+            android:background="@drawable/btn_style"
+            android:textColor="@color/blanco"
+            android:padding="12dp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Redirección a Login -->
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link_login_registrar"
+            android:textColor="@color/amarillo_verde"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</ScrollView>

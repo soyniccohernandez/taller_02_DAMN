@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:background="@android:color/white">
+
+    <!-- Botón de perfil en la esquina superior izquierda -->
+    <Button
+        android:id="@+id/btnPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perfil"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Texto de bienvenida centrado -->
+
+    <!-- Botón de cerrar sesión centrado debajo del texto -->
+    <TextView
+        android:id="@+id/txtBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:text="Bienvenido"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnPerfil" />
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Cerrar Sesión"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtBienvenida" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

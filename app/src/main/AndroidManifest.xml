@@ -14,6 +14,18 @@
         android:theme="@style/Theme.Taller_02"
         tools:targetApi="31">
         <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PefilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecuperacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

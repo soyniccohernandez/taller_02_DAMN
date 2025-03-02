@@ -1,0 +1,20 @@
+<resources>
+    //Activity Splash
+    <string name="app_name">Taller_02</string>
+    <string name="app_nombre_aplicacion">Nova</string>
+    <string name="app_estudiante">Nicolás Hernández</string>
+
+    //Activity Home
+    <string name="text_descripcion_home">Inicia una nueva aventura con Nova y descubre una nueva forma de ver el mundo</string>
+    <string name="text_btn_home">Comienza</string>
+    <string name="link_registrate_home">Regístrate</string>
+
+    //Activity Login
+    <string name="text_descripcion_login">La aventura está por iniciar, por favor incia sesión</string>
+    <string name="text_btn_login">Ingresar</string>
+    <string name="link_recupera_contrasenia_login">Recupera Tu Contraseña</string>
+    <string name="text_btn_google_login">Ingresa con Google</string>
+    <string name="text_registrate_login">No tienes cuenta?</string>
+    <string name="link_registrate_login">Regístrate</string>
+
+</resources>

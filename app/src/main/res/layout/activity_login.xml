@@ -98,11 +98,11 @@
         android:id="@+id/btn_ingresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_btn_login"
-        android:textSize="18sp"
-        android:textColor="@color/blanco"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_style"
-        android:layout_marginTop="20dp"/>
+        android:text="@string/text_btn_login"
+        android:textColor="@color/blanco"
+        android:textSize="18sp" />
 
     <!-- Enlace Recuperar Contraseña -->
     <TextView

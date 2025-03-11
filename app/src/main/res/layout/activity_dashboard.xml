@@ -18,8 +18,6 @@
         android:layout_marginStart="16dp"/>
 
     <!-- Texto de bienvenida centrado -->
-
-    <!-- Botón de cerrar sesión centrado debajo del texto -->
     <TextView
         android:id="@+id/txtBienvenida"
         android:layout_width="wrap_content"
@@ -33,6 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnPerfil" />
 
+    <!-- Botón de cerrar sesión -->
     <Button
         android:id="@+id/btnCerrarSesion"
         android:layout_width="wrap_content"
@@ -43,5 +42,17 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtBienvenida" />
+
+    <!-- Nuevo botón de Calculadora Salud -->
+    <Button
+        android:id="@+id/btnCalculadoraSalud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Calculadora Salud"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnCerrarSesion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

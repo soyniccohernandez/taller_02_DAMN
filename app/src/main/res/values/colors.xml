@@ -7,4 +7,8 @@
     <color name="amarillo_verde">#B3F306</color>
     <color name="color_texto_input">#CCCCCC</color>
     <color name="fondo_pantalla">#424242</color> <!-- Agregado para optimización -->
+
+
+
+    <color name="naranja">#F47054</color>
 </resources>

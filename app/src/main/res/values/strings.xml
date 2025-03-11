@@ -1,11 +1,11 @@
 <resources>
     //Activity Splash
-    <string name="app_name">Taller_02</string>
-    <string name="app_nombre_aplicacion">Nova</string>
+    <string name="app_name">Parcial</string>
+    <string name="app_nombre_aplicacion">Cameo</string>
     <string name="app_estudiante">Nicolás Hernández</string>
 
     //Activity Home
-    <string name="text_descripcion_home">Inicia una nueva aventura con Nova y descubre una nueva forma de ver el mundo</string>
+    <string name="text_descripcion_home">Inicia una nueva aventura con Cameo y descubre una nueva forma de ver el mundo</string>
     <string name="text_btn_home">Comienza</string>
     <string name="link_registrate_home">Regístrate</string>
 

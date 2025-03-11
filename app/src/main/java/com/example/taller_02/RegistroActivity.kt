@@ -23,30 +23,24 @@ class RegistroActivity : AppCompatActivity() {
         val btnRegistro = findViewById<Button>(R.id.btnRegistro)
         val txtLogin = findViewById<TextView>(R.id.txtLogin)
 
-        // Instancia de SharedPreferences
         val sharedPreferences: SharedPreferences = getSharedPreferences("UsuarioData", MODE_PRIVATE)
 
         btnRegistro.setOnClickListener {
             val nombres = etNombres.text.toString().trim()
             val apellidos = etApellidos.text.toString().trim()
-            val correo = etCorreo.text.toString().trim()
+            val correo = etCorreo.text.toString().trim().lowercase()
             val telefono = etTelefono.text.toString().trim()
             val contrasena = etContrasena.text.toString()
             val repetirContrasena = etRepetirContrasena.text.toString()
 
-            if (validarCampos(nombres, apellidos, correo, telefono, contrasena, repetirContrasena, checkTerminos)) {
-                // Verificar si el usuario ya está registrado
-                val usuariosRegistrados = sharedPreferences.getStringSet("correosRegistrados", mutableSetOf()) ?: mutableSetOf()
+            if (validarCampos(etNombres, etApellidos, etCorreo, etTelefono, etContrasena, etRepetirContrasena, checkTerminos)) {
+                val usuariosRegistrados = sharedPreferences.getStringSet("correosRegistrados", mutableSetOf())?.toMutableSet() ?: mutableSetOf()
 
                 if (usuariosRegistrados.contains(correo)) {
                     Toast.makeText(this, "Este correo ya está registrado", Toast.LENGTH_SHORT).show()
                 } else {
-                    // Guardar datos del usuario en SharedPreferences
+                    // Guardar datos
                     val editor = sharedPreferences.edit()
-
-                    // Asegurarse de hacer una copia mutable del conjunto antes de modificarlo
-                    val usuariosRegistrados = sharedPreferences.getStringSet("correosRegistrados", mutableSetOf())?.toMutableSet() ?: mutableSetOf()
-
                     usuariosRegistrados.add(correo)
 
                     editor.putStringSet("correosRegistrados", usuariosRegistrados)
@@ -54,20 +48,13 @@ class RegistroActivity : AppCompatActivity() {
                     editor.putString("apellidos_$correo", apellidos)
                     editor.putString("telefono_$correo", telefono)
                     editor.putString("contrasena_$correo", contrasena)
-                    editor.putString("usuario_actual", correo)
 
-                    editor.putString("usuario_actual", correo) // Guarda el correo del usuario como "usuario_actual"
+                    editor.commit() // Guardado seguro
 
-
-                    editor.apply()
-
-                    // Mostrar mensaje para verificar que se guardó el usuario actual
                     Toast.makeText(this, "Usuario registrado: $correo", Toast.LENGTH_SHORT).show()
 
-
-                    // Redirigir a DashboardActivity
                     val intent = Intent(this, DashboardActivity::class.java)
-                    intent.putExtra("nombre_usuario", nombres) // Pasamos el nombre del usuario
+                    intent.putExtra("nombre_usuario", nombres)
                     startActivity(intent)
                     finish()
                 }
@@ -75,54 +62,59 @@ class RegistroActivity : AppCompatActivity() {
         }
 
         txtLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 
     private fun validarCampos(
-        nombres: String,
-        apellidos: String,
-        correo: String,
-        telefono: String,
-        contrasena: String,
-        repetirContrasena: String,
+        etNombres: EditText,
+        etApellidos: EditText,
+        etCorreo: EditText,
+        etTelefono: EditText,
+        etContrasena: EditText,
+        etRepetirContrasena: EditText,
         checkTerminos: CheckBox
     ): Boolean {
         var esValido = true
 
-        if (nombres.isEmpty()) {
-            findViewById<EditText>(R.id.etNombres).error = "Este campo es obligatorio"
+        if (etNombres.text.isEmpty()) {
+            etNombres.error = "Este campo es obligatorio"
+            etNombres.requestFocus()
             esValido = false
         }
 
-        if (apellidos.isEmpty()) {
-            findViewById<EditText>(R.id.etApellidos).error = "Este campo es obligatorio"
+        if (etApellidos.text.isEmpty()) {
+            etApellidos.error = "Este campo es obligatorio"
+            etApellidos.requestFocus()
             esValido = false
         }
 
-        if (correo.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
-            findViewById<EditText>(R.id.etCorreo).error = "Ingrese un correo válido"
+        if (etCorreo.text.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(etCorreo.text).matches()) {
+            etCorreo.error = "Ingrese un correo válido"
+            etCorreo.requestFocus()
             esValido = false
         }
 
-        if (telefono.isEmpty() || telefono.length < 7) {
-            findViewById<EditText>(R.id.etTelefono).error = "Ingrese un teléfono válido"
+        if (etTelefono.text.isEmpty() || etTelefono.text.length < 7) {
+            etTelefono.error = "Ingrese un teléfono válido"
+            etTelefono.requestFocus()
             esValido = false
         }
 
-        if (contrasena.length < 6) {
-            findViewById<EditText>(R.id.etContrasena).error = "La contraseña debe tener al menos 6 caracteres"
+        if (etContrasena.text.length < 6) {
+            etContrasena.error = "La contraseña debe tener al menos 6 caracteres"
+            etContrasena.requestFocus()
             esValido = false
         }
 
-        if (contrasena != repetirContrasena) {
-            findViewById<EditText>(R.id.etRepetirContrasena).error = "Las contraseñas no coinciden"
+        if (etContrasena.text.toString() != etRepetirContrasena.text.toString()) {
+            etRepetirContrasena.error = "Las contraseñas no coinciden"
+            etRepetirContrasena.requestFocus()
             esValido = false
         }
 
         if (!checkTerminos.isChecked) {
-            checkTerminos.error = "Debes aceptar los términos y condiciones"
+            Toast.makeText(checkTerminos.context, "Debes aceptar los términos y condiciones", Toast.LENGTH_SHORT).show()
             esValido = false
         }
 

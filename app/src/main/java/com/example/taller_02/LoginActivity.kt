@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -20,20 +22,29 @@ class LoginActivity : AppCompatActivity() {
         val txtRegistrate = findViewById<TextView>(R.id.lnk_registrar)
         val lnkRecuperar = findViewById<TextView>(R.id.lnk_recuperar)
 
-        val sharedPreferences: SharedPreferences = getSharedPreferences("UsuarioData", MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("UsuarioData", MODE_PRIVATE)
 
         btnIngresar.setOnClickListener {
-            val correoIngresado = etCorreo.text.toString().trim()
-            val contrasenaIngresada = etContrasena.text.toString()
+            val correoIngresado = etCorreo.text.toString().trim().lowercase() // Estandarizar en minúsculas
+            val contrasenaIngresada = etContrasena.text.toString().trim()
 
-            val sharedPreferences: SharedPreferences = getSharedPreferences("UsuarioData", MODE_PRIVATE)
+            if (correoIngresado.isEmpty() || contrasenaIngresada.isEmpty()) {
+                Toast.makeText(this, "Por favor ingrese su correo y contraseña", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            // Usar la clave dinámica basada en el correo ingresado para obtener los datos
+            // Recuperar la contraseña guardada
             val contrasenaGuardada = sharedPreferences.getString("contrasena_$correoIngresado", null)
 
-            if (contrasenaIngresada == contrasenaGuardada) {
+            if (contrasenaGuardada == null) {
+                Toast.makeText(this, "El usuario no existe", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (contrasenaGuardada == contrasenaIngresada) {
                 // Inicio de sesión exitoso
                 Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
+
                 val editor = sharedPreferences.edit()
                 editor.putString("usuario_actual", correoIngresado)
                 editor.apply()
